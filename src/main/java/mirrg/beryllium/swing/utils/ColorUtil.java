@@ -8,15 +8,7 @@ public interface ColorUtil
 	// Color creator
 
 	/**
-	 * このメソッドは引数を単にint型にキャストして {@link #createColor(int, int, int)} を呼び出します。
-	 */
-	public static Color createColor(double r, double g, double b)
-	{
-		return createColor((int) r, (int) g, (int) b);
-	}
-
-	/**
-	 * このメソッドは引数を単にint型にキャストして {@link #createColor(int, int, int, int)} を呼び出します。
+	 * 引数は0以上255以下の整数値に丸められます。
 	 */
 	public static Color createColor(double r, double g, double b, double a)
 	{
@@ -24,16 +16,15 @@ public interface ColorUtil
 	}
 
 	/**
-	 * このメソッドは単にアルファ成分に255を指定して {@link #createColor(int, int, int, int)}
-	 * を呼び出します。
+	 * 引数は0以上255以下の整数値に丸められます。
 	 */
-	public static Color createColor(int r, int g, int b)
+	public static Color createColor(double r, double g, double b)
 	{
-		return createColor(r, g, b, 255);
+		return createColor((int) r, (int) g, (int) b);
 	}
 
 	/**
-	 * 0以上255以下の範囲を外れた数値を丸めてColorを生成します。
+	 * 引数は0以上255以下の整数値に丸められます。
 	 */
 	public static Color createColor(int r, int g, int b, int a)
 	{
@@ -46,6 +37,71 @@ public interface ColorUtil
 		if (b >= 256) b = 255;
 		if (a >= 256) a = 255;
 		return new Color(r, g, b, a);
+	}
+
+	/**
+	 * 引数は0以上255以下の整数値に丸められます。
+	 */
+	public static Color createColor(int r, int g, int b)
+	{
+		if (r < 0) r = 1;
+		if (g < 0) g = 1;
+		if (b < 0) b = 1;
+		if (r >= 256) r = 255;
+		if (g >= 256) g = 255;
+		if (b >= 256) b = 255;
+		return new Color(r, g, b);
+	}
+
+	// Random Color
+
+	public static Color createRandomColor(int minR, int maxR, int minG, int maxG, int minB, int maxB, int minA, int maxA)
+	{
+		return createColor(
+			(int) (Math.random() * (maxR - minR + 1) + minR),
+			(int) (Math.random() * (maxG - minG + 1) + minG),
+			(int) (Math.random() * (maxB - minB + 1) + minB),
+			(int) (Math.random() * (maxA - minA + 1) + minA));
+	}
+
+	public static Color createRandomColor(int minR, int maxR, int minG, int maxG, int minB, int maxB)
+	{
+		return createColor(
+			(int) (Math.random() * (maxR - minR + 1) + minR),
+			(int) (Math.random() * (maxG - minG + 1) + minG),
+			(int) (Math.random() * (maxB - minB + 1) + minB));
+	}
+
+	/**
+	 * アルファ成分は不透明で固定です。
+	 */
+	public static Color createRandomColor(int min, int max)
+	{
+		return createRandomColor(min, max, min, max, min, max);
+	}
+
+	/**
+	 * 完全に不透明で各成分が0以上255以下のランダムな色を返します。
+	 */
+	public static Color createRandomColor()
+	{
+		return createRandomColor(0, 255);
+	}
+
+	/**
+	 * 完全に不透明で各成分が0以上127以下のランダムな色を返します。
+	 */
+	public static Color createRandomColorDark()
+	{
+		return createRandomColor(0, 127);
+	}
+
+	/**
+	 * 完全に不透明で各成分が128以上255以下のランダムな色を返します。
+	 */
+	public static Color createRandomColorLight()
+	{
+		return createRandomColor(128, 255);
 	}
 
 	// int color
