@@ -57,9 +57,4 @@ public class HColor
 			Aer * a.getBlue() + (1 - Aer) * b.getBlue(), Aer * a.getAlpha() + (1 - Aer) * b.getAlpha());
 	}
 
-	public static int getColorInt(int r, int g, int b)
-	{
-		return (r << 16) | (g << 8) | b;
-	}
-
 }

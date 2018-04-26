@@ -48,4 +48,31 @@ public interface ColorUtil
 		return new Color(r, g, b, a);
 	}
 
+	// int color
+
+	public static int getRGB(int r, int g, int b)
+	{
+		return (r << 16) | (g << 8) | b;
+	}
+
+	public static int getARGB(int r, int g, int b, int a)
+	{
+		return (a << 24) | (r << 16) | (g << 8) | b;
+	}
+
+	public static void getFromARGB(int[] RGBA, int argb)
+	{
+		RGBA[3] = (argb >> 24) & 0xff;
+		RGBA[0] = (argb >> 16) & 0xff;
+		RGBA[1] = (argb >> 8) & 0xff;
+		RGBA[2] = (argb >> 0) & 0xff;
+	}
+
+	public static void getFromRGB(int[] RGB, int rgb)
+	{
+		RGB[0] = (rgb >> 16) & 0xff;
+		RGB[1] = (rgb >> 8) & 0xff;
+		RGB[2] = (rgb >> 0) & 0xff;
+	}
+
 }
