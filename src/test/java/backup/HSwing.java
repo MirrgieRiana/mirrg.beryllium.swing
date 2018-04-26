@@ -11,40 +11,12 @@ import java.util.function.Supplier;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JComponent;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.JTextComponent;
 
 public class HSwing
 {
-
-	public static JMenuBar createJMenuBar(Component... components)
-	{
-		JMenuBar menuBar = new JMenuBar();
-		for (Component component : components) {
-			menuBar.add(component);
-		}
-		return menuBar;
-	}
-
-	public static JMenu createJMenu(String text, Component... components)
-	{
-		JMenu menu = new JMenu(text);
-		for (Component component : components) {
-			menu.add(component);
-		}
-		return menu;
-	}
-
-	public static JMenuItem createJMenuItem(String text, ActionListener actionListener)
-	{
-		JMenuItem menuItem = new JMenuItem(text);
-		menuItem.addActionListener(actionListener);
-		return menuItem;
-	}
 
 	public static <T> T process(T object, Consumer<T> consumer)
 	{
