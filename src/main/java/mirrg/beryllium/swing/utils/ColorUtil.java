@@ -131,4 +131,29 @@ public interface ColorUtil
 		RGB[2] = (rgb >> 0) & 0xff;
 	}
 
+	// Ratio Color
+
+	/**
+	 * 色a, bの中間色を計算します。
+	 * ratioが0以下の場合はaを返し、ratioが1以上の場合はbを返します。
+	 * ratioが小数の場合は、a, bを適切な比率で混合した色を計算して返します。
+	 */
+	public static int getRatioARGB(double ratio, int a, int b)
+	{
+		if (ratio <= 0) return a;
+		if (ratio >= 1) return b;
+
+		int[] a2 = new int[4];
+		int[] b2 = new int[4];
+
+		getFromARGB(a2, a);
+		getFromARGB(b2, b);
+
+		return getARGB(
+			(int) ((1 - ratio) * a2[0] + ratio * b2[0]),
+			(int) ((1 - ratio) * a2[1] + ratio * b2[1]),
+			(int) ((1 - ratio) * a2[2] + ratio * b2[2]),
+			(int) ((1 - ratio) * a2[3] + ratio * b2[3]));
+	}
+
 }
