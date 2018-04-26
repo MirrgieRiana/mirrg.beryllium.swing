@@ -1,4 +1,4 @@
-package backup;
+package mirrg.beryllium.swing;
 
 import java.awt.Component;
 
@@ -6,6 +6,23 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout.Group;
 
+/**
+ * このクラスは次のようにして使います。
+ *
+ * <pre>
+ * GroupLayout layout = new GroupLayout(getContentPane());
+ *
+ * group(
+ * 	group(
+ * 		new JLabel("Label"),
+ * 		new JTextField("Text")),
+ * 	new JScrollPane(new JButton("Button"))).apply(layout);
+ *
+ * setLayout(layout);
+ * </pre>
+ *
+ * このクラスを利用するときは、このクラスをstatic importしておくことをお勧めします。
+ */
 public class GroupBuilder
 {
 

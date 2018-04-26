@@ -1,6 +1,6 @@
 package mirrg.beryllium.swing;
 
-import static backup.GroupBuilder.*;
+import static mirrg.beryllium.swing.GroupBuilder.*;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
