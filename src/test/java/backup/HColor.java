@@ -6,48 +6,6 @@ public class HColor
 {
 
 	/**
-	 * 定義域を外れたdouble型を適切に丸めてColorインスタンスを作成します。
-	 * rgbaそれぞれ、int値と同じく0以上256未満の値に丸められます。
-	 */
-	public static Color createColor(double r, double g, double b)
-	{
-		return createColor(r, g, b, 255);
-	}
-
-	/**
-	 * 定義域を外れたint型を適切に丸めてColorインスタンスを作成します。
-	 */
-	public static Color createColor(int r, int g, int b)
-	{
-		return createColor(r, g, b, 255);
-	}
-
-	/**
-	 * 定義域を外れたdouble型を適切に丸めてColorインスタンスを作成します。
-	 * rgbaそれぞれ、int値と同じく0以上256未満の値に丸められます。
-	 */
-	public static Color createColor(double r, double g, double b, double a)
-	{
-		return createColor((int) r, (int) g, (int) b, (int) a);
-	}
-
-	/**
-	 * 定義域を外れたint型を適切に丸めてColorインスタンスを作成します。
-	 */
-	public static Color createColor(int r, int g, int b, int a)
-	{
-		if (r < 0) r = 1;
-		if (g < 0) g = 1;
-		if (b < 0) b = 1;
-		if (a < 0) a = 1;
-		if (r >= 256) r = 255;
-		if (g >= 256) g = 255;
-		if (b >= 256) b = 255;
-		if (a >= 256) a = 255;
-		return new Color(r, g, b, a);
-	}
-
-	/**
 	 * ランダムなrgb値と255のa値を持つ色を生成して返します。
 	 */
 	public static Color createRandomColor()
