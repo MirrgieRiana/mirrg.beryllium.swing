@@ -16,7 +16,6 @@ import javax.swing.JComponent;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JScrollPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.JTextComponent;
@@ -29,19 +28,6 @@ public class HSwing
 		JButton button = new JButton(caption);
 		button.addActionListener(listener);
 		return button;
-	}
-
-	public static JScrollPane createScrollPane(Component component)
-	{
-		JScrollPane scrollPane = new JScrollPane(component);
-		return scrollPane;
-	}
-
-	public static JScrollPane createScrollPane(Component component, int width, int height)
-	{
-		JScrollPane scrollPane = new JScrollPane(component);
-		scrollPane.setPreferredSize(new Dimension(width, height));
-		return scrollPane;
 	}
 
 	public static JMenuBar createJMenuBar(Component... components)

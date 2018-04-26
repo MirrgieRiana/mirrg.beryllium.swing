@@ -3,12 +3,14 @@ package mirrg.beryllium.swing;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.border.EmptyBorder;
 
@@ -205,6 +207,20 @@ public interface PanelUtil
 		panel.setLayout(new CardLayout());
 		panel.setBorder(new EmptyBorder(margin, margin, margin, margin));
 		return panel;
+	}
+
+	// ScrollPane
+
+	public static JScrollPane createScrollPane(Component component)
+	{
+		return new JScrollPane(component);
+	}
+
+	public static JScrollPane createScrollPane(Component component, int width, int height)
+	{
+		JScrollPane scrollPane = new JScrollPane(component);
+		scrollPane.setPreferredSize(new Dimension(width, height));
+		return scrollPane;
 	}
 
 }
