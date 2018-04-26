@@ -106,14 +106,24 @@ public interface ColorUtil
 
 	// int color
 
-	public static int getRGB(int r, int g, int b)
+	public static int getARGB(int[] RGBA)
 	{
-		return (r << 16) | (g << 8) | b;
+		return getARGB(RGBA[0], RGBA[1], RGBA[2], RGBA[3]);
+	}
+
+	public static int getRGB(int[] RGB)
+	{
+		return getRGB(RGB[0], RGB[1], RGB[2]);
 	}
 
 	public static int getARGB(int r, int g, int b, int a)
 	{
 		return (a << 24) | (r << 16) | (g << 8) | b;
+	}
+
+	public static int getRGB(int r, int g, int b)
+	{
+		return (r << 16) | (g << 8) | b;
 	}
 
 	public static void getFromARGB(int[] RGBA, int argb)
@@ -129,6 +139,20 @@ public interface ColorUtil
 		RGB[0] = (rgb >> 16) & 0xff;
 		RGB[1] = (rgb >> 8) & 0xff;
 		RGB[2] = (rgb >> 0) & 0xff;
+	}
+
+	public static int[] getFromARGB(int argb)
+	{
+		int[] RGBA = new int[4];
+		getFromARGB(RGBA, argb);
+		return RGBA;
+	}
+
+	public static int[] getFromRGB(int rgb)
+	{
+		int[] RGB = new int[4];
+		getFromRGB(RGB, rgb);
+		return RGB;
 	}
 
 	// Ratio Color
