@@ -8,8 +8,6 @@ import java.util.stream.IntStream;
 
 import javax.swing.JList;
 
-import backup.TitledGroup;
-
 public class SampleTitledGroup
 {
 
