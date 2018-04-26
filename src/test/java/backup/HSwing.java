@@ -11,7 +11,6 @@ import java.util.function.Supplier;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -22,13 +21,6 @@ import javax.swing.text.JTextComponent;
 
 public class HSwing
 {
-
-	public static JButton createButton(String caption, ActionListener listener)
-	{
-		JButton button = new JButton(caption);
-		button.addActionListener(listener);
-		return button;
-	}
 
 	public static JMenuBar createJMenuBar(Component... components)
 	{
