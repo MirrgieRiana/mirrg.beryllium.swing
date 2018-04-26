@@ -1,6 +1,6 @@
 package mirrg.beryllium.swing;
 
-public class ComponentUtil
+public interface ComponentUtil
 {
 
 }
