@@ -2,7 +2,6 @@ package backup;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.function.Consumer;
@@ -67,12 +66,6 @@ public class HSwing
 	public static <T extends AbstractButton> T addIntoButtonGroup(T component, ButtonGroup buttonGroup)
 	{
 		buttonGroup.add(component);
-		return component;
-	}
-
-	public static <T extends AbstractButton> T addActionListener(T component, ActionListener listener)
-	{
-		component.addActionListener(listener);
 		return component;
 	}
 
