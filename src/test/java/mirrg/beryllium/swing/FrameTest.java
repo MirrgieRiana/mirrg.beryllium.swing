@@ -9,10 +9,10 @@ import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionListener;
 
-public abstract class Frame extends JFrame
+public abstract class FrameTest extends JFrame
 {
 
-	public Frame()
+	public FrameTest()
 	{
 		init();
 

@@ -13,7 +13,7 @@ public class SampleTitledGroup
 
 	public static void main(String[] args)
 	{
-		new Frame() {
+		new FrameTest() {
 
 			@Override
 			protected void init()
