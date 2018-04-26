@@ -28,10 +28,10 @@ public interface ColorUtil
 	 */
 	public static Color createColor(int r, int g, int b, int a)
 	{
-		if (r < 0) r = 1;
-		if (g < 0) g = 1;
-		if (b < 0) b = 1;
-		if (a < 0) a = 1;
+		if (r < 0) r = 0;
+		if (g < 0) g = 0;
+		if (b < 0) b = 0;
+		if (a < 0) a = 0;
 		if (r >= 256) r = 255;
 		if (g >= 256) g = 255;
 		if (b >= 256) b = 255;
@@ -44,9 +44,9 @@ public interface ColorUtil
 	 */
 	public static Color createColor(int r, int g, int b)
 	{
-		if (r < 0) r = 1;
-		if (g < 0) g = 1;
-		if (b < 0) b = 1;
+		if (r < 0) r = 0;
+		if (g < 0) g = 0;
+		if (b < 0) b = 0;
 		if (r >= 256) r = 255;
 		if (g >= 256) g = 255;
 		if (b >= 256) b = 255;
