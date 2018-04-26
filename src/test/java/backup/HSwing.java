@@ -2,18 +2,10 @@ package backup;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JComponent;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.JTextComponent;
 
 public class HSwing
 {
@@ -44,82 +36,6 @@ public class HSwing
 	public static <T extends JComponent> T setToolTipText(T component, String string)
 	{
 		component.setToolTipText(string);
-		return component;
-	}
-
-	public static <T extends Component> T hookRightClick(T component, Predicate<MouseEvent> listener)
-	{
-		component.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e)
-			{
-				if (e.getButton() == MouseEvent.BUTTON3) {
-					if (listener.test(e)) e.consume();
-				}
-			}
-		});
-		return component;
-	}
-
-	public static <T extends Component> T hookPopup(T component, Predicate<MouseEvent> listener)
-	{
-		component.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e)
-			{
-				if (e.isPopupTrigger()) {
-					if (listener.test(e)) e.consume();
-				}
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e)
-			{
-				if (e.isPopupTrigger()) {
-					if (listener.test(e)) e.consume();
-				}
-			}
-		});
-		return component;
-	}
-
-	public static <T extends JTextComponent> T hookChange(T textComponent, Consumer<DocumentEvent> listener)
-	{
-		textComponent.getDocument().addDocumentListener(new DocumentListener() {
-
-			@Override
-			public void insertUpdate(DocumentEvent e)
-			{
-				listener.accept(e);
-			}
-
-			@Override
-			public void removeUpdate(DocumentEvent e)
-			{
-				listener.accept(e);
-			}
-
-			@Override
-			public void changedUpdate(DocumentEvent e)
-			{
-				listener.accept(e);
-			}
-
-		});
-		return textComponent;
-	}
-
-	public static <T extends Component> T hookDoubleClick(T component, Consumer<MouseEvent> listener)
-	{
-		component.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e)
-			{
-				if (e.getClickCount() == 2) {
-					listener.accept(e);
-				}
-			}
-		});
 		return component;
 	}
 
