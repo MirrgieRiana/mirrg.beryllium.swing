@@ -4,17 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import javax.swing.AbstractButton;
@@ -27,9 +24,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -37,58 +31,6 @@ import javax.swing.text.JTextComponent;
 
 public class HSwing
 {
-
-	public static void setWindowsLookAndFeel()
-	{
-		try {
-			UIManager
-				.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static boolean tryAddWebLookAndFeel()
-	{
-		try {
-			Class<?> clazz = Class.forName("com.alee.laf.WebLookAndFeel");
-			if (clazz != null) {
-
-				Field[] fields = clazz.getFields();
-
-				Pattern pattern = Pattern.compile("global[\\w\\d_]*Font");
-				Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
-
-				for (Field field : fields) {
-					if (pattern.matcher(field.getName()).matches()) {
-						if (field.getType().isInstance(font)) {
-							try {
-								field.set(null, font);
-							} catch (IllegalArgumentException e) {
-								e.printStackTrace();
-							} catch (IllegalAccessException e) {
-								e.printStackTrace();
-							}
-						}
-					}
-				}
-
-				UIManager.installLookAndFeel(new LookAndFeelInfo(clazz
-					.getSimpleName(), clazz.getName()));
-
-			}
-
-			return true;
-		} catch (ClassNotFoundException e) {
-			return false;
-		}
-	}
 
 	public static Component createSplitPaneHorizontal(Component... components)
 	{
