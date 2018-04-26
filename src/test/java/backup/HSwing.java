@@ -1,16 +1,13 @@
 package backup;
 
-import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
-import java.util.stream.Stream;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -19,45 +16,13 @@ import javax.swing.JComponent;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.JTextComponent;
 
 public class HSwing
 {
-
-	public static JPanel createPanel(Consumer<JPanel> initializer)
-	{
-		JPanel panel = new JPanel();
-		initializer.accept(panel);
-		return panel;
-	}
-
-	public static JPanel createPanel(Component... components)
-	{
-		JPanel panel = new JPanel();
-		Stream.of(components)
-			.forEach(panel::add);
-		return panel;
-	}
-
-	public static JPanel createPanel(List<Component> components)
-	{
-		JPanel panel = new JPanel();
-		components.forEach(panel::add);
-		return panel;
-	}
-
-	public static JPanel createMargin(int margin, Component component)
-	{
-		return process(createPanel(component), c -> {
-			c.setLayout(new CardLayout());
-			c.setBorder(new EmptyBorder(margin, margin, margin, margin));
-		});
-	}
 
 	public static JButton createButton(String caption, ActionListener listener)
 	{

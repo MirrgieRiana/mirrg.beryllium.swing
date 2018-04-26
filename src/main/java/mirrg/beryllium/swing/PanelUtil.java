@@ -1,15 +1,43 @@
 package mirrg.beryllium.swing;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.border.EmptyBorder;
 
 public interface PanelUtil
 {
+
+	// Panel
+
+	public static JPanel createPanel(Consumer<JPanel> initializer)
+	{
+		JPanel panel = new JPanel();
+		initializer.accept(panel);
+		return panel;
+	}
+
+	public static JPanel createPanel(Component... components)
+	{
+		JPanel panel = new JPanel();
+		Stream.of(components)
+			.forEach(panel::add);
+		return panel;
+	}
+
+	public static JPanel createPanel(List<Component> components)
+	{
+		JPanel panel = new JPanel();
+		components.forEach(panel::add);
+		return panel;
+	}
 
 	// SplitPane
 
@@ -166,6 +194,16 @@ public interface PanelUtil
 		if (center != null) panel.add(center, BorderLayout.CENTER);
 		if (right != null) panel.add(right, BorderLayout.EAST);
 
+		return panel;
+	}
+
+	// Margin
+
+	public static JPanel createMargin(int margin, Component component)
+	{
+		JPanel panel = createPanel(component);
+		panel.setLayout(new CardLayout());
+		panel.setBorder(new EmptyBorder(margin, margin, margin, margin));
 		return panel;
 	}
 
