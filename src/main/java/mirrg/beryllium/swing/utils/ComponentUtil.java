@@ -1,6 +1,6 @@
-package mirrg.beryllium.swing;
+package mirrg.beryllium.swing.utils;
 
-import static mirrg.beryllium.swing.EventUtil.*;
+import static mirrg.beryllium.swing.utils.EventUtil.*;
 
 import java.awt.Component;
 import java.awt.Dimension;

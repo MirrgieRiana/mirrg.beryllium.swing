@@ -1,4 +1,4 @@
-package mirrg.beryllium.swing;
+package mirrg.beryllium.swing.utils;
 
 import javax.swing.UIManager;
 
