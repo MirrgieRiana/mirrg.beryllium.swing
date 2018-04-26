@@ -2,8 +2,6 @@ package backup;
 
 import java.awt.Color;
 
-import mirrg.lithium.lang.HMath;
-
 public class HColor
 {
 
@@ -76,10 +74,10 @@ public class HColor
 	/**
 	 * minからmaxの範囲でランダムなrgb値と255のa値を持つ色を生成して返します。
 	 */
-	public static Color createRandomRangedColor(int min, int max)
-	{
-		return createColor(HMath.randomBetween(min, max), HMath.randomBetween(min, max), HMath.randomBetween(min, max));
-	}
+	//public static Color createRandomRangedColor(int min, int max)
+	//{
+	//	return createColor(HMath.randomBetween(min, max), HMath.randomBetween(min, max), HMath.randomBetween(min, max));
+	//}
 
 	/**
 	 * 2色a, bの中間色を計算します。 Aerが0以下の場合はaを返し、Aerが1以上の場合はbを返します。 Aerが小数の場合は2色a,
