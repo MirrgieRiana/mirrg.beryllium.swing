@@ -3,9 +3,13 @@ package mirrg.beryllium.swing;
 import static mirrg.beryllium.swing.EventUtil.*;
 
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -50,6 +54,26 @@ public interface ComponentUtil
 		JMenuItem menuItem = new JMenuItem(text);
 		menuItem.addActionListener(actionListener);
 		return menuItem;
+	}
+
+	// properties
+
+	public static <T extends Component> T setPreferredSize(T component, int width, int rows)
+	{
+		component.setPreferredSize(new Dimension(width, component.getFont().getSize() * rows + 6));
+		return component;
+	}
+
+	public static <T extends JComponent> T setToolTipText(T component, String string)
+	{
+		component.setToolTipText(string);
+		return component;
+	}
+
+	public static <T extends AbstractButton> T addIntoButtonGroup(T component, ButtonGroup buttonGroup)
+	{
+		buttonGroup.add(component);
+		return component;
 	}
 
 }
