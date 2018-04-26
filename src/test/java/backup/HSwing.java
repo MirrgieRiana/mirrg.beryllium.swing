@@ -1,13 +1,11 @@
 package backup;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -30,110 +28,6 @@ import javax.swing.text.JTextComponent;
 
 public class HSwing
 {
-
-	public static Component createBorderPanelUp(Component... components)
-	{
-		return createBorderPanelUp(Arrays.asList(components));
-	}
-
-	public static Component createBorderPanelUp(List<Component> components)
-	{
-		if (components.size() == 1) return components.get(0);
-		JPanel panel = new JPanel();
-
-		panel.setLayout(new BorderLayout(4, 4));
-		panel.add(components.get(0), BorderLayout.NORTH);
-		{
-			Component component = createBorderPanelUp(components.subList(1, components.size()));
-			if (component != null) panel.add(component, BorderLayout.CENTER);
-		}
-
-		return panel;
-	}
-
-	public static Component createBorderPanelDown(Component... components)
-	{
-		return createBorderPanelDown(Arrays.asList(components));
-	}
-
-	public static Component createBorderPanelDown(List<Component> components)
-	{
-		if (components.size() == 1) return components.get(0);
-		JPanel panel = new JPanel();
-
-		panel.setLayout(new BorderLayout(4, 4));
-		{
-			Component component = createBorderPanelDown(components.subList(0, components.size() - 1));
-			if (component != null) panel.add(component, BorderLayout.CENTER);
-		}
-		panel.add(components.get(components.size() - 1), BorderLayout.SOUTH);
-
-		return panel;
-	}
-
-	public static Component createBorderPanelLeft(Component... components)
-	{
-		return createBorderPanelLeft(Arrays.asList(components));
-	}
-
-	public static Component createBorderPanelLeft(List<Component> components)
-	{
-		if (components.size() == 1) return components.get(0);
-		JPanel panel = new JPanel();
-
-		panel.setLayout(new BorderLayout(4, 4));
-		panel.add(components.get(0), BorderLayout.WEST);
-		{
-			Component component = createBorderPanelLeft(components.subList(1, components.size()));
-			if (component != null) panel.add(component, BorderLayout.CENTER);
-		}
-
-		return panel;
-	}
-
-	public static Component createBorderPanelRight(Component... components)
-	{
-		return createBorderPanelRight(Arrays.asList(components));
-	}
-
-	public static Component createBorderPanelRight(List<Component> components)
-	{
-		if (components.size() == 1) return components.get(0);
-		JPanel panel = new JPanel();
-
-		panel.setLayout(new BorderLayout(4, 4));
-		{
-			Component component = createBorderPanelRight(components.subList(0, components.size() - 1));
-			if (component != null) panel.add(component, BorderLayout.CENTER);
-		}
-		panel.add(components.get(components.size() - 1), BorderLayout.EAST);
-
-		return panel;
-	}
-
-	public static JPanel createBorderPanelVertical(Component top, Component middle, Component bottom)
-	{
-		JPanel panel = new JPanel();
-
-		panel.setLayout(new BorderLayout(4, 4));
-		if (top != null) panel.add(top, BorderLayout.NORTH);
-		if (middle != null) panel.add(middle, BorderLayout.CENTER);
-		if (bottom != null) panel.add(bottom, BorderLayout.SOUTH);
-
-		return panel;
-	}
-
-	public static JPanel createBorderPanelHorizontal(Component left, Component center, Component right)
-	{
-		JPanel panel = new JPanel();
-
-		panel.setLayout(new BorderLayout(4, 4));
-		if (left != null) panel.add(left, BorderLayout.WEST);
-		if (center != null) panel.add(center, BorderLayout.CENTER);
-		if (right != null) panel.add(right, BorderLayout.EAST);
-
-		return panel;
-	}
 
 	public static JPanel createPanel(Consumer<JPanel> initializer)
 	{
