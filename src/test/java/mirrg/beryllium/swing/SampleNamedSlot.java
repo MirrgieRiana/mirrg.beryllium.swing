@@ -10,8 +10,6 @@ import javax.swing.JList;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 
-import backup.NamedSlot;
-
 public class SampleNamedSlot
 {
 
