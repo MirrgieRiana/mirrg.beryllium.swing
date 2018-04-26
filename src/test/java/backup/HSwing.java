@@ -10,17 +10,6 @@ import javax.swing.JComponent;
 public class HSwing
 {
 
-	public static <T> T process(T object, Consumer<T> consumer)
-	{
-		consumer.accept(object);
-		return object;
-	}
-
-	public static <T> T get(Supplier<T> supplier)
-	{
-		return supplier.get();
-	}
-
 	public static <T extends Component> T setPreferredSize(T component, int width, int rows)
 	{
 		component.setPreferredSize(new Dimension(width, component.getFont().getSize() * rows + 6));
