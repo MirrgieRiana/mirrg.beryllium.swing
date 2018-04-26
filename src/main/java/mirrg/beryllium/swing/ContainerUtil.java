@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.border.EmptyBorder;
 
-public interface PanelUtil
+public interface ContainerUtil
 {
 
 	// Panel
