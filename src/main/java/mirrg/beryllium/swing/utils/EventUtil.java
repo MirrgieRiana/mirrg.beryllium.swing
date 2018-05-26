@@ -7,8 +7,10 @@ import java.awt.event.MouseEvent;
 import java.util.function.Consumer;
 
 import javax.swing.AbstractButton;
+import javax.swing.JList;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.text.JTextComponent;
 
 public interface EventUtil
@@ -19,6 +21,12 @@ public interface EventUtil
 	public static <T extends AbstractButton> T addActionListener(T component, ActionListener listener)
 	{
 		component.addActionListener(listener);
+		return component;
+	}
+
+	public static <T extends JList<?>> T addListSelectionListener(T component, ListSelectionListener listener)
+	{
+		component.addListSelectionListener(listener);
 		return component;
 	}
 
