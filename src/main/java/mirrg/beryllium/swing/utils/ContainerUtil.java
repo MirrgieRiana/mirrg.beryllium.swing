@@ -14,6 +14,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.border.EmptyBorder;
 
+import mirrg.beryllium.swing.TitledGroup;
+
 public interface ContainerUtil
 {
 
@@ -207,6 +209,11 @@ public interface ContainerUtil
 		panel.setLayout(new CardLayout());
 		panel.setBorder(new EmptyBorder(margin, margin, margin, margin));
 		return panel;
+	}
+
+	public static TitledGroup createTitledGroup(String title, Component component)
+	{
+		return new TitledGroup(title, component);
 	}
 
 	// ScrollPane
