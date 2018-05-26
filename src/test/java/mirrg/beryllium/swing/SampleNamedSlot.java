@@ -1,14 +1,18 @@
 package mirrg.beryllium.swing;
 
-import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.util.Vector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import javax.swing.JFrame;
 import javax.swing.JList;
-import javax.swing.JSplitPane;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+
+import mirrg.beryllium.swing.utils.ContainerUtil;
+import mirrg.beryllium.swing.utils.EventUtil;
 
 public class SampleNamedSlot
 {
@@ -19,35 +23,47 @@ public class SampleNamedSlot
 
 	public static void main(String[] args)
 	{
-		new FrameTest() {
+		JFrame frame = new JFrame();
 
-			@Override
-			protected void init()
-			{
-				setLayout(new BorderLayout());
-				{
+		frame.setLayout(new CardLayout());
+		{
+			SampleObject[] objects = IntStream.range(0, 20)
+				.mapToObj(i -> new SampleObject(i, "[" + i + "]"))
+				.toArray(SampleObject[]::new);
 
-					SampleObject[] objects = IntStream.range(0, 20)
-						.mapToObj(i -> new SampleObject(i, "[" + i + "]"))
-						.toArray(SampleObject[]::new);
+			frame.add(ContainerUtil.createBorderPanelDown(
 
-					add(new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
-						createScrollPane(addListSelectionListener(list1 = new JList<NamedSlot<SampleObject>>(Stream.of(objects)
-							.map(o -> new NamedSlot<>(o, SampleObject::getName))
-							.collect(Collectors.toCollection(Vector::new))), e -> {
-								textField.setText("" + list1.getSelectedValue().get().value);
-							}), 100, 200),
-						createScrollPane(addListSelectionListener(list2 = new JList<NamedSlot<SampleObject>>(Stream.of(objects)
-							.map(o -> new NamedSlot<>(o, SampleObject::getName))
-							.collect(Collectors.toCollection(Vector::new))), e -> {
-								textField.setText("" + list2.getSelectedValue().get().value);
-							}), 100, 200)), BorderLayout.CENTER);
+				// リスト
+				ContainerUtil.createSplitPaneHorizontal(
 
-					add(textField = new JTextField(), BorderLayout.SOUTH);
-				}
-			}
+					// 左
+					ContainerUtil.createScrollPane(EventUtil.addListSelectionListener(list1 = new JList<NamedSlot<SampleObject>>(Stream.of(objects)
+						.map(o -> new NamedSlot<>(o, SampleObject::getName))
+						.collect(Collectors.toCollection(Vector::new))), e -> {
+							textField.setText("" + list1.getSelectedValue().get().value);
+						}), 100, 200),
 
-		}.setVisible(true);
+					// 右
+					ContainerUtil.createScrollPane(EventUtil.addListSelectionListener(list2 = new JList<NamedSlot<SampleObject>>(Stream.of(objects)
+						.map(o -> new NamedSlot<>(o, SampleObject::getName))
+						.collect(Collectors.toCollection(Vector::new))), e -> {
+							textField.setText("" + list2.getSelectedValue().get().value);
+						}), 100, 200)
+
+				),
+
+				// テキストボックス
+				textField = new JTextField()
+
+			));
+		}
+
+		frame.pack();
+		frame.setLocationByPlatform(true);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+		frame.setVisible(true);
+
 	}
 
 	public static class SampleObject

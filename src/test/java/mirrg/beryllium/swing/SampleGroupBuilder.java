@@ -4,47 +4,54 @@ import static mirrg.beryllium.swing.GroupBuilder.*;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
 public class SampleGroupBuilder
 {
 
 	public static void main(String[] args)
 	{
-		new FrameTest() {
 
-			@Override
-			protected void init()
-			{
-				GroupLayout layout = new GroupLayout(getContentPane());
+		JFrame frame = new JFrame();
 
+		{
+			GroupLayout layout = new GroupLayout(frame.getContentPane());
+
+			layout.setAutoCreateGaps(true);
+
+			group(
 				group(
-					group(
-						new JLabel("Label"),
-						new JTextField("Text")),
-					group(
-						new JLabel("Label"),
-						new JTextField("Text")),
-					group(
-						new JLabel("Label"),
-						new JTextField("Text")),
-					group(
-						new JLabel("Label"),
-						new JTextField("Text")),
-					group(
-						new JLabel("Label"),
-						new JTextField("Text")),
-					group(
-						new JLabel("Label"),
-						new JTextField("Text")),
-					new JScrollPane(new JButton("Button"))).apply(layout);
+					new JLabel("Label"),
+					new JTextField("Text")),
+				group(
+					new JLabel("Label"),
+					new JTextField("Text")),
+				group(
+					new JLabel("Label"),
+					new JTextField("Text")),
+				group(
+					new JLabel("Label"),
+					new JTextField("Text")),
+				group(
+					new JLabel("Label"),
+					new JTextField("Text")),
+				group(
+					new JLabel("Label"),
+					new JTextField("Text")),
+				new JScrollPane(new JButton("Button"))).apply(layout);
 
-				setLayout(layout);
-			}
+			frame.setLayout(layout);
+		}
 
-		}.setVisible(true);
+		frame.pack();
+		frame.setLocationByPlatform(true);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+		frame.setVisible(true);
 	}
 
 }
