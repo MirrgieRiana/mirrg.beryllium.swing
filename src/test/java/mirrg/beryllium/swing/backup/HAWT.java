@@ -1,4 +1,4 @@
-package backup;
+package mirrg.beryllium.swing.backup;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

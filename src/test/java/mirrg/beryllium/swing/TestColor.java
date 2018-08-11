@@ -1,11 +1,11 @@
 package mirrg.beryllium.swing;
 
 import static mirrg.beryllium.swing.utils.ColorUtil.*;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.Color;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TestColor
 {
