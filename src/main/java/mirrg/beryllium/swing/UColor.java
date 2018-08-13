@@ -1,8 +1,8 @@
-package mirrg.beryllium.swing.utils;
+package mirrg.beryllium.swing;
 
 import java.awt.Color;
 
-public interface ColorUtil
+public interface UColor
 {
 
 	// Color creator

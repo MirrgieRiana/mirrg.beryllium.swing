@@ -1,4 +1,4 @@
-package mirrg.beryllium.swing;
+package mirrg.beryllium.swing.components;
 
 import java.awt.CardLayout;
 import java.awt.Component;

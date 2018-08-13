@@ -1,4 +1,4 @@
-package mirrg.beryllium.swing.utils;
+package mirrg.beryllium.swing;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -8,7 +8,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 
-public interface LayoutUtil
+public interface ULayout
 {
 
 	/**

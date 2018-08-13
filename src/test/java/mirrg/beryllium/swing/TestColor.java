@@ -1,6 +1,6 @@
 package mirrg.beryllium.swing;
 
-import static mirrg.beryllium.swing.utils.ColorUtil.*;
+import static mirrg.beryllium.swing.UColor.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.Color;

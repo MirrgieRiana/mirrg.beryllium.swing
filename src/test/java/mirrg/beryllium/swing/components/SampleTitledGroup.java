@@ -1,4 +1,4 @@
-package mirrg.beryllium.swing;
+package mirrg.beryllium.swing.components;
 
 import java.awt.CardLayout;
 import java.util.Vector;
@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.WindowConstants;
 
-import mirrg.beryllium.swing.utils.ContainerUtil;
+import mirrg.beryllium.swing.UContainer;
 
 public class SampleTitledGroup
 {
@@ -19,7 +19,7 @@ public class SampleTitledGroup
 		JFrame frame = new JFrame();
 
 		frame.setLayout(new CardLayout());
-		frame.add(ContainerUtil.createTitledGroup("Title", ContainerUtil.createScrollPane(new JList<String>(IntStream.range(0, 20)
+		frame.add(UContainer.createTitledGroup("Title", UContainer.createScrollPane(new JList<String>(IntStream.range(0, 20)
 			.mapToObj(i -> "" + i)
 			.collect(Collectors.toCollection(Vector::new))), 200, 200)));
 

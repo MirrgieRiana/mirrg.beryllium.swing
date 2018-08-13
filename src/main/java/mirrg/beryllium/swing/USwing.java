@@ -1,8 +1,8 @@
-package mirrg.beryllium.swing.utils;
+package mirrg.beryllium.swing;
 
 import javax.swing.UIManager;
 
-public interface SwingUtil
+public interface USwing
 {
 
 	public static void setWindowsLookAndFeel() throws Exception

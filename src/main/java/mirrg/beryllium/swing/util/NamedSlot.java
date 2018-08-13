@@ -1,4 +1,4 @@
-package mirrg.beryllium.swing;
+package mirrg.beryllium.swing.util;
 
 import java.util.function.Function;
 import java.util.function.Supplier;

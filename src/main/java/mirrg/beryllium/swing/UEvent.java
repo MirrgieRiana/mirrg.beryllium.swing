@@ -1,4 +1,4 @@
-package mirrg.beryllium.swing.utils;
+package mirrg.beryllium.swing;
 
 import java.awt.Component;
 import java.awt.event.ActionListener;
@@ -13,7 +13,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.text.JTextComponent;
 
-public interface EventUtil
+public interface UEvent
 {
 
 	// listener adder

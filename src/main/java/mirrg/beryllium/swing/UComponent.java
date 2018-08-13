@@ -1,6 +1,6 @@
-package mirrg.beryllium.swing.utils;
+package mirrg.beryllium.swing;
 
-import static mirrg.beryllium.swing.utils.EventUtil.*;
+import static mirrg.beryllium.swing.UEvent.*;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -14,7 +14,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public interface ComponentUtil
+public interface UComponent
 {
 
 	// Button

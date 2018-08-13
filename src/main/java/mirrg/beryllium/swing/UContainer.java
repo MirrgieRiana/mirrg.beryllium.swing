@@ -1,4 +1,4 @@
-package mirrg.beryllium.swing.utils;
+package mirrg.beryllium.swing;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -14,9 +14,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.border.EmptyBorder;
 
-import mirrg.beryllium.swing.TitledGroup;
+import mirrg.beryllium.swing.components.TitledGroup;
 
-public interface ContainerUtil
+public interface UContainer
 {
 
 	// Panel
