@@ -12,6 +12,7 @@ import javax.swing.GroupLayout.Group;
  * </p>
  * <p>
  * このクラスは次のようにして使います。
+ * </p>
  *
  * <pre>
  * setLayout(GroupBuilder.group(
@@ -28,7 +29,6 @@ import javax.swing.GroupLayout.Group;
  * )
  * 	.apply(new GroupLayout(getContentPane())));
  * </pre>
- * </p>
  * <p>
  * すなわち、最も外側のグループは縦に並ぶグループを表し、
  * その内側のグループは横に並ぶグループを表し、
