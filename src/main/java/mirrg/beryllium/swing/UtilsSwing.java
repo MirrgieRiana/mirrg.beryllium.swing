@@ -15,7 +15,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public interface UComponent
+public class UtilsSwing
 {
 
 	// Button
