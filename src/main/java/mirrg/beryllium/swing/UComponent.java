@@ -79,10 +79,15 @@ public interface UComponent
 
 	// properties
 
-	public static <T extends Component> T setPreferredSize(T component, int width, int rows)
+	public static <T extends Component> T setPreferredSize(T component, int width, int height)
 	{
-		component.setPreferredSize(new Dimension(width, component.getFont().getSize() * rows + 6));
+		component.setPreferredSize(new Dimension(width, height));
 		return component;
+	}
+
+	public static <T extends Component> T setPreferredSizeFromRows(T component, int width, int rows)
+	{
+		return setPreferredSize(component, width, component.getFont().getSize() * rows + 6);
 	}
 
 	public static <T extends JComponent> T setToolTipText(T component, String string)
