@@ -53,11 +53,19 @@ public interface UComponent
 		return menuBar;
 	}
 
+	/**
+	 * @param components
+	 *            nullの場合、セパレータを追加します。
+	 */
 	public static JMenu createMenu(String text, Component... components)
 	{
 		JMenu menu = new JMenu(text);
 		for (Component component : components) {
-			menu.add(component);
+			if (component == null) {
+				menu.addSeparator();
+			} else {
+				menu.add(component);
+			}
 		}
 		return menu;
 	}
