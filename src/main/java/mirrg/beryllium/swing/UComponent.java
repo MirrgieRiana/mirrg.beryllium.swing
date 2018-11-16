@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
 import javax.swing.AbstractButton;
+import javax.swing.Action;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -19,14 +20,26 @@ public interface UComponent
 
 	// Button
 
-	public static JButton createButton(String caption)
+	public static JButton createButton(String text)
 	{
-		return new JButton(caption);
+		return new JButton(text);
 	}
 
-	public static JButton createButton(String caption, ActionListener listener)
+	public static JButton createButton(Action action)
 	{
-		return addActionListener(new JButton(caption), listener);
+		return new JButton(action);
+	}
+
+	public static JButton createButton(String text, ActionListener listener)
+	{
+		return addActionListener(new JButton(text), listener);
+	}
+
+	public static JButton createButton(String text, Action action)
+	{
+		JButton button = new JButton(action);
+		button.setText(text);
+		return button;
 	}
 
 	// MenuBar
